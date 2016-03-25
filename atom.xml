@@ -143,7 +143,7 @@
     <link href="www.ysatnaf.com/2016/03/15/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
     <id>www.ysatnaf.com/2016/03/15/踩坑记录/</id>
     <published>2016-03-15T15:15:00.000Z</published>
-    <updated>2016-03-15T15:17:33.000Z</updated>
+    <updated>2016-03-25T12:19:14.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Android&quot;&gt;&lt;a href=&quot;#Android&quot; class=&quot;headerlink&quot; title=&quot;Android&quot;&gt;&lt;/a&gt;Android&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;1.react-native could not connect to development server&lt;/strong&gt; &lt;/p&gt;
@@ -157,6 +157,10 @@
 &lt;p&gt;&lt;strong&gt;3.FAILURE: Build failed with an exception.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;可供尝试的解决方法&lt;/strong&gt;&lt;br&gt;1.下载Android SDK 23.0.1&lt;br&gt;&lt;img src=&quot;/img/1458053948257.png&quot; alt=&quot;Alt text&quot;&gt;&lt;br&gt;2.设置/App/build.gradle&lt;br&gt;&lt;img src=&quot;/img/1458054152689.png&quot; alt=&quot;Alt text&quot;&gt;&lt;br&gt;3.使用&lt;br&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;adb install android/app/build/outputs/apk/app-debug.apk&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;4.关闭DEBUG JS模式之后异常卡顿&lt;/strong&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原因：如果是使用了redux-logger的话,最好在正常模式下不要启用。&lt;br&gt;经测试,react-native在打印日志时会非常卡。如某个页面异常卡顿，请检查是否是否有打印日志。&lt;br&gt;使用redux-logger请仅在&lt;em&gt;DEV&lt;/em&gt;模式下使用。(在DEV setting页面)&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; loggerMiddleware = createLogger(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  predicate: (getState, action) =&amp;gt; __DEV__&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">

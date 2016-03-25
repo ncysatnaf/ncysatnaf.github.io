@@ -10,7 +10,11 @@
 <p><strong>3.FAILURE: Build failed with an exception.</strong></p>
 </blockquote>
 <p><strong>可供尝试的解决方法</strong><br>1.下载Android SDK 23.0.1<br><img src="/img/1458053948257.png" alt="Alt text"><br>2.设置/App/build.gradle<br><img src="/img/1458054152689.png" alt="Alt text"><br>3.使用<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install android/app/build/outputs/apk/app-debug.apk</span><br></pre></td></tr></table></figure></p>
-</div></article></div></section><footer><div class="paginator"><a href="/2016/03/20/用Expres和MongoDB创建一个简单的CRUD应用1/" class="prev">上一篇</a><a href="/2016/03/15/hello-world/" class="next">下一篇</a></div><div data-thread-key="2016/03/15/踩坑记录/" data-title="React-native_踩坑记录" data-url="www.ysatnaf.com/2016/03/15/踩坑记录/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"ysatnaf"};
+<blockquote>
+<p><strong>4.关闭DEBUG JS模式之后异常卡顿</strong> </p>
+</blockquote>
+<p>原因：如果是使用了redux-logger的话,最好在正常模式下不要启用。<br>经测试,react-native在打印日志时会非常卡。如某个页面异常卡顿，请检查是否是否有打印日志。<br>使用redux-logger请仅在<em>DEV</em>模式下使用。(在DEV setting页面)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> loggerMiddleware = createLogger(&#123;</span><br><span class="line">  predicate: (getState, action) =&gt; __DEV__</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/03/20/用Expres和MongoDB创建一个简单的CRUD应用1/" class="prev">PRVE</a><a href="/2016/03/15/hello-world/" class="next">NEXT</a></div><div data-thread-key="2016/03/15/踩坑记录/" data-title="React-native_踩坑记录" data-url="www.ysatnaf.com/2016/03/15/踩坑记录/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"ysatnaf"};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
